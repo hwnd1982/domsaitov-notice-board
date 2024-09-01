@@ -93,7 +93,7 @@
 
 
         <fieldset class="">
-          <legend class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><span class="px-5">ИНФОРМАЦИЯ</span></legend>
+          <div class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><legend class="px-5">ИНФОРМАЦИЯ</legend></div>
           <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
             {% include "./ui/text-field.twig" with {
               props: {
@@ -118,7 +118,7 @@
         </fieldset>
 
         <fieldset class="">
-          <legend class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><span class="px-5">цены</span></legend>
+          <div class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><legend class="px-5">цены</legend></div>
           <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
             <div class="">
               <label class="text-field__label" for="price-motorcars">Легковые автомобили</label>
@@ -128,7 +128,7 @@
                     class: "max-w-[50%]",
                     name: "price-motorcars",
                     validate: "price, required",
-                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                    postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
                   }
                 } only %}
                 
@@ -136,7 +136,7 @@
                   props: {
                     class: "flex justify-end flex-grow",
                     type: "checkbox",
-                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                    children: '<span class="text-r-c text-grey-200 pl-4 block">Услугу не оказываю</span>',
                   }
                 } %}
               </div>
@@ -150,7 +150,7 @@
                     class: "max-w-[50%]",
                     name: "price-motorcycles",
                     validate: "price, required",
-                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                    postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
                   }
                 } only %}
                 
@@ -158,7 +158,7 @@
                   props: {
                     class: "flex justify-end flex-grow",
                     type: "checkbox",
-                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                    children: '<span class="text-r-c text-grey-200 pl-4 block">Услугу не оказываю</span>',
                   }
                 } %}
               </div>
@@ -172,7 +172,7 @@
                     class: "max-w-[50%]",
                     name: "price-suvs",
                     validate: "price, required",
-                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                    postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
                   }
                 } only %}
                 
@@ -180,7 +180,7 @@
                   props: {
                     class: "flex justify-end flex-grow",
                     type: "checkbox",
-                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                    children: '<span class="text-r-c text-grey-200 pl-4 block">Услугу не оказываю</span>',
                   }
                 } %}
               </div>
@@ -194,7 +194,7 @@
                     class: "max-w-[50%]",
                     name: "price-minibuses",
                     validate: "price, required",
-                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                    postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
                   }
                 } only %}
                 
@@ -202,7 +202,7 @@
                   props: {
                     class: "flex justify-end flex-grow",
                     type: "checkbox",
-                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                    children: '<span class="text-r-c text-grey-200 pl-4 block">Услугу не оказываю</span>',
                   }
                 } %}
               </div>
@@ -216,7 +216,7 @@
                     class: "max-w-[50%]",
                     name: "price-country",
                     validate: "price, required",
-                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                    postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
                   }
                 } only %}
                 
@@ -224,7 +224,7 @@
                   props: {
                     class: "flex justify-end flex-grow",
                     type: "checkbox",
-                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                    children: '<span class="text-r-c text-grey-200 pl-4 block">Услугу не оказываю</span>',
                   }
                 } %}
               </div>
@@ -232,11 +232,30 @@
 
           </div>
         </fieldset>
-        <div class="max-w-[79.8rem] mx-auto flex flex-col items-center [&>:not(:last-chaild)]:mb-6">
-          
+
+        <fieldset class="pb-[4.5rem]">
+          <div class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow">
+            <legend class="px-5">фото</legend>
+          </div>
+          <div class="max-w-[79.8rem] mx-auto">
+            <input type="file" name="photo" id="photo" class="sr-only" />
+            <p class="text-field__label mb-3" for="price-country">Прикрепите фотографию к объявлению</p>
+            <label for="photo" class="group button button-size--default button-type--outlined h-14 uppercase w-full mx-auto max-w-[33.5rem]">Загрузить</label>
+          </div>
+        </fieldset>
+        <div class="max-w-[79.8rem] mx-auto flex flex-col items-center">
+          {% include "./ui/radio.twig" with {
+            props: {
+              class: "flex justify-end flex-grow items-start mb-6",
+              type: "checkbox",
+              validate: "required",
+              children: '<span class="text-r-c pl-6 block text-grey-200">Я соглашаюсь с правилами использования сервиса, а также с передачей и обработкой моих данных в evarus.ru. Я подтверждаю своё совершеннолетие и ответственность за размещение.</span>',
+            }
+          } %}
+
           {% include "./ui/button.twig" with {
             props: {
-              class: "uppercase w-full mx-auto max-w-[33.5rem] js-form-submit",
+              class: "uppercase w-full mx-auto max-w-[33.5rem] h-14 js-form-submit",
               children: "Продолжить",
               additionalAttributes: 'type="submit"'
             }
