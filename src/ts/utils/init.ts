@@ -1,14 +1,20 @@
 import { initScrollbar, initClickSmoothScroll, detectMob } from "./";
 import { initValidateForms } from "../modules";
-import { initModals } from "../ui/modal";
-import { initTextFields } from "../ui/text-field";
-import { initRadios } from "../ui/radio";
 import PerfectScrollbar from "perfect-scrollbar";
+import {
+  initModals,
+  initTextFields,
+  initRadios,
+  initOptionalField,
+  initImagesFields,
+} from "../ui";
 
 export function initBase() {
   initScrollbar();
   initTextFields();
   initRadios();
+  initImagesFields();
+  initOptionalField();
   initValidateForms();
   initModals();
   initClickSmoothScroll();

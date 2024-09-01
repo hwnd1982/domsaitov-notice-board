@@ -7,6 +7,14 @@ export function addPreloader(
   container: HTMLElement = document.body,
   className: string = "loader-opacity-fixed",
 ) {
+  if (
+    container !== document.body &&
+    className !== "loader-opacity-fixed" &&
+    !container.classList.contains("relative")
+  ) {
+    container.classList.add("relative");
+  }
+
   container.insertAdjacentHTML(
     "beforeend",
     `<div class="js-preloader ${className}"></div>`,
@@ -16,6 +24,11 @@ export function addPreloader(
 export function removePreloader(container: HTMLElement = document.body) {
   const preloader = container.querySelector<HTMLElement>("& > .js-preloader");
 
+  if (container !== document.body && container.classList.contains("relative")) {
+    container.classList.remove("relative");
+  }
+
+  container.classList.add("relative");
   preloader?.remove();
 }
 

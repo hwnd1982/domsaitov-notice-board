@@ -1,8 +1,8 @@
 {% extends "layouts/base.twig" %}
 
 {% set properties = {
-  title: "сreating",
-  script: "сreating",
+  title: "Creating",
+  script: "creating",
 } %}
 
 {% block content %}
@@ -48,6 +48,7 @@
                 name: "name",
                 inputAttributes: "",
                 validate: "name, required",
+                error: "Неверный формат"
               }
             } only %}
 
@@ -58,6 +59,7 @@
                 inputType: "tel",
                 validate: "phone, required",
                 placeholder: "+7 (999) 999 99 99",
+                error: "Неверный формат"
               }
             } only %}
 
@@ -68,6 +70,7 @@
                 inputType: "tel",
                 validate: "phone, required",
                 placeholder: "+7 (999) 999 99 99",
+                error: "Неверный формат"
               }
             } only %}
 
@@ -78,6 +81,7 @@
                 inputType: "email",
                 validate: "email",
                 placeholder: "example@gmail.com",
+                error: "Неверный формат"
               }
             } only %}
 
@@ -85,12 +89,10 @@
               props: {
                 name: "address",
                 label: "Адрес стоянки эвакуатора",
-                validate: "text",
               }
             } only %}
           </div>
         </fieldset>
-
 
         <fieldset class="">
           <div class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><legend class="px-5">ИНФОРМАЦИЯ</legend></div>
@@ -101,6 +103,7 @@
                 name: "title",
                 validate: "title, required",
                 placeholder: "Не более 50 символов",
+                error: "Превышена длина сообщения"
               }
             } only %}
 
@@ -112,6 +115,7 @@
                 type: "textarea",
                 validate: "description, required",
                 placeholder: "Не более 250 символов",
+                error: "Превышена длина сообщения"
               }
             } only %}
           </div>
@@ -120,7 +124,7 @@
         <fieldset class="">
           <div class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><legend class="px-5">цены</legend></div>
           <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
-            <div class="">
+            <div class="js-optional-field">
               <label class="text-field__label" for="price-motorcars">Легковые автомобили</label>
               <div class="flex justify-between items-center">
                 {% include "./ui/text-field.twig" with {
@@ -142,7 +146,7 @@
               </div>
             </div>
             
-            <div class="">
+            <div class="js-optional-field">
               <label class="text-field__label" for="price-motorcycles">Мототехника</label>
               <div class="flex justify-between items-center">
                 {% include "./ui/text-field.twig" with {
@@ -164,7 +168,7 @@
               </div>
             </div>
 
-            <div class="">
+            <div class="js-optional-field">
               <label class="text-field__label" for="price-suvs">Внедорожник</label>
               <div class="flex justify-between items-center">
                 {% include "./ui/text-field.twig" with {
@@ -186,7 +190,7 @@
               </div>
             </div>
 
-            <div class="">
+            <div class="js-optional-field">
               <label class="text-field__label" for="price-minibuses">Микроавтобус</label>
               <div class="flex justify-between items-center">
                 {% include "./ui/text-field.twig" with {
@@ -208,7 +212,7 @@
               </div>
             </div>
 
-            <div class="">
+            <div class="js-optional-field">
               <label class="text-field__label" for="price-country">Загородный тариф</label>
               <div class="flex justify-between items-center">
                 {% include "./ui/text-field.twig" with {
@@ -229,7 +233,6 @@
                 } %}
               </div>
             </div>
-
           </div>
         </fieldset>
 
@@ -237,10 +240,10 @@
           <div class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow">
             <legend class="px-5">фото</legend>
           </div>
-          <div class="max-w-[79.8rem] mx-auto">
-            <input type="file" name="photo" id="photo" class="sr-only" />
+          <div class="max-w-[79.8rem] mx-auto js-images-field">
+            <input type="file" name="photo" id="photo" class="sr-only js-images-field-input" accept=".jpg, .jpeg, .png" />
             <p class="text-field__label mb-3" for="price-country">Прикрепите фотографию к объявлению</p>
-            <label for="photo" class="group button button-size--default button-type--outlined h-14 uppercase w-full mx-auto max-w-[33.5rem]">Загрузить</label>
+            <label for="photo" class="group button button-size--default button-type--outlined h-14 uppercase w-full mx-auto max-w-[33.5rem] js-images-field-button">Загрузить</label>
           </div>
         </fieldset>
         <div class="max-w-[79.8rem] mx-auto flex flex-col items-center">
@@ -248,6 +251,7 @@
             props: {
               class: "flex justify-end flex-grow items-start mb-6",
               type: "checkbox",
+              name: "agree",
               validate: "required",
               children: '<span class="text-r-c pl-6 block text-grey-200">Я соглашаюсь с правилами использования сервиса, а также с передачей и обработкой моих данных в evarus.ru. Я подтверждаю своё совершеннолетие и ответственность за размещение.</span>',
             }

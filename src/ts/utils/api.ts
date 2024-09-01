@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { config } from "./config";
 import { BaseResponse } from "../types/api";
 
 export function checkResponse(response: Response) {

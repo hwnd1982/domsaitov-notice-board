@@ -1,12 +1,19 @@
 import LazyLoad from "vanilla-lazyload";
 import { initBase } from "./utils/init";
-import { store } from "./utils";
-import { TextFieldElement } from "./ui/text-field";
+import {
+  addPreloader,
+  removePreloader,
+  resetForm,
+  setPreloader,
+  store,
+} from "./utils";
+import { TextFieldElement, openCustomModal } from "./ui";
 
 if (!window.endpoints) {
   window.endpoints = {
     findLocationsUrl:
-      "https://orimex.sirotkin.dev.ibrush.ru/bitrix/services/main/ajax.php?action=ibrush%3Amain.controllers.locationcontroller.findLocations&SITE_ID=s1&query=",
+      "https://orimex.sirotkin.dev.ibrush.ru/bitrix/services/main/ajax.php?action=ibrush%3Amain.controllers.locationcontroller.findLocations",
+    createNewAd: "https://jsonplaceholder.typicode.com/posts",
   };
 }
 
@@ -19,6 +26,11 @@ function initGlobal() {
 
   initBase();
 
+  window.openCustomModal = openCustomModal;
+  window.setPreloader = setPreloader;
+  window.addPreloader = addPreloader;
+  window.removePreloader = removePreloader;
+  window.resetForm = resetForm;
   window.getCitySelectValue = () => {
     return document.querySelector<TextFieldElement>(".js-city-select")
       ?.textField?.field?.value;

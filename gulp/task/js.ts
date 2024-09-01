@@ -32,7 +32,7 @@ const webpackOpt: any = {
     global: "./.tmp/js/global.js",
     index: "./.tmp/js/index.js",
     main: "./.tmp/js/main.js",
-    сreating: "./.tmp/js/сreating.js",
+    creating: "./.tmp/js/creating.js",
   },
   output: {
     filename: "[name].bundle.js",

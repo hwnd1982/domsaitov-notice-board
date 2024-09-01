@@ -2,7 +2,7 @@
   @apply relative;
 
   &__label {
-    @apply block text-grey-200 text-r-c mb-3;
+    @apply block text-grey-200 text-r-c [&:not(:last-chaild)]:mb-3;
   }
 
   &__inner {
@@ -32,7 +32,7 @@
   }
 
   &__textarea {
-    @apply block h-full w-full max-w-full resize-none bg-transparent outline-none text-r-l placeholder:text-black/30 hover:shadow-black/50;
+    @apply block h-full w-full max-w-full resize-none bg-transparent outline-none text-r-l placeholder:text-black/30 hover:shadow-blue-900;
   }
 
   &__endContent {
@@ -56,7 +56,7 @@
 
     &__error {
       &._required {
-        @apply opacity-0;
+        @apply hidden;
       }
     }
   }
@@ -65,10 +65,10 @@
 .text-field.is-error.is-error-required {
   .text-field {
     &__error {
-      @apply opacity-0;
+      @apply hidden;
 
       &._required {
-        @apply opacity-100;
+        @apply block;
       }
     }
   }
@@ -77,10 +77,10 @@
 .text-field.is-disabled {
   @apply opacity-30;
 
-  .text-field {
-    &__input {
-    }
-  }
+  // .text-field {
+  //   &__input {
+  //   }
+  // }
 
   &.is-error {
     .text-field {

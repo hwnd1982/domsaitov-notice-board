@@ -175,12 +175,12 @@ export function openCustomModal(props: OpenCustomModalProps) {
     contentCustomModal.innerHTML = html;
   } else {
     contentCustomModal.innerHTML = `
-      ${title ? `<h3 class="text-r-3xl lg:text-r-xl-2-u text-center">${title}</h3>` : ""}
-      ${description ? `<p class="mt-8 text-r-l-2 lg:text-r-m-3 text-black/50 text-center">${description}</p>` : ""}
+      ${title ? `<h3 class="text-h-b-m text-center">${title}</h3>` : ""}
+      ${description ? `<p class="mt-8 text-r-l text-grey-200 text-center">${description}</p>` : ""}
       ${
         button
           ? `
-        <button class="group button button-size--m button-type--primary w-full mt-8 js-modal-close">
+        <button class="group button button-size--default button-type--primary w-full mt-8 js-modal-close">
           <span>${button}</span>
         </button>
       `

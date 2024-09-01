@@ -33,19 +33,19 @@ body {
 }
 
 .loader {
-  @apply relative;
+  @apply absolute top-1 left-1 right-1 bottom-1;
 
   &::after {
     content: "";
-    @apply absolute left-0 top-0 z-[28] h-full w-full bg-white;
+    @apply absolute left-0 top-0 z-[28] h-full w-full bg-transparent;
   }
 
   &::before {
     content: "";
     @apply absolute left-1/2 top-1/2 z-[29] -translate-x-1/2 -translate-y-1/2;
-    width: 48px;
-    height: 48px;
-    border: 5px solid #140c0c;
+    width: 4rem;
+    height: 4rem;
+    border: 5px solid #0297d4;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -75,7 +75,7 @@ body {
     @apply absolute left-1/2 top-1/2 z-[31] -translate-x-1/2 -translate-y-1/2;
     width: 48px;
     height: 48px;
-    border: 5px solid #140c0c;
+    border: 5px solid #0297d4;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

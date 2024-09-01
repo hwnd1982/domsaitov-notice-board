@@ -10,7 +10,10 @@ export type TextFieldValidate =
   | "required"
   | "email"
   | "name"
-  | "city";
+  | "city"
+  | "title"
+  | "description"
+  | "price";
 
 export interface TextFieldValidateResult {
   isValid: boolean;
@@ -237,6 +240,15 @@ export class TextField {
           });
           break;
         }
+        case "price": {
+          this.field.addEventListener("input", (e) => {
+            const target = e.target as TextFieldInput;
+
+            target.value = target.value.replace(/\D/g, "");
+          });
+
+          break;
+        }
       }
     });
   };
@@ -244,6 +256,7 @@ export class TextField {
   public setDisabled = () => {
     this.el.classList.add(states.disabled);
     this.field.setAttribute("disabled", "");
+    this.field.value = "";
   };
 
   public removeDisabled = () => {
@@ -301,7 +314,7 @@ export class TextField {
           case "name": {
             if (
               this.field.value &&
-              !/^[а-яА-Яa-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u.test(
+              !/^[а-яА-Яa-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\s,.'-]+$/u.test(
                 this.field.value,
               )
             ) {
@@ -309,6 +322,35 @@ export class TextField {
               validation.error = "name";
             }
 
+            break;
+          }
+          case "title": {
+            if (
+              (this.field.value &&
+                !/^[а-яА-Яa-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\d\s,.'-]+$/u.test(
+                  this.field.value,
+                )) ||
+              this.field.value.trim().length > 50
+            ) {
+              validation.isValid = false;
+              validation.error = "title";
+            }
+            break;
+          }
+          case "description": {
+            if (
+              (this.field.value &&
+                !/^[а-яА-Яa-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð\d\s,.'-]+$/u.test(
+                  this.field.value,
+                )) ||
+              this.field.value.trim().length > 250
+            ) {
+              validation.isValid = false;
+              validation.error = "description";
+            }
+            break;
+          }
+          case "price": {
             break;
           }
         }

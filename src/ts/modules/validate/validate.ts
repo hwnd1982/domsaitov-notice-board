@@ -202,7 +202,10 @@ export class ValidateForm {
 
     this.fields.inputs.forEach((input) => {
       if ("textField" in input) {
-        if (!input.textField.checkValid().isValid) {
+        if (
+          !input.textField.field.disabled &&
+          !input.textField.checkValid().isValid
+        ) {
           isValid = false;
         }
       } else if ("radio" in input) {

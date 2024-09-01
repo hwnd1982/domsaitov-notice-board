@@ -1,10 +1,10 @@
 {% set credentialModalContent %}
-  <div class="p-15 lg:px-4 bg-white relative">
-    <button class="absolute top-5 right-5 block lg:top-4 lg:right-4 js-modal-close">
+  <div class="p-10 bg-white rounded-[2rem] shadow-border-px shadow-blue relative">
+    <button class="absolute top-4 right-4 block lg:top-4 lg:right-4 js-modal-close transition text-grey-100 hover:text-blue">
       {% include "../ui/icon.twig" with {
         props: {
-          href: "close",
-          class: "w-6",
+          href: "ic-close",
+          class: "w-10",
         }
       } only %}
     </button>
