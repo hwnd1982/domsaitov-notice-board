@@ -1,0 +1,26 @@
+<header class="bg-white" id="top">
+  <div class="container py-[2.2rem] grid grid-cols-[1fr_minmax(max-content,_1fr)] gap-[3rem]">
+    <div>
+      <img src="./img/logo.png" alt="Логотип: Тут эвакуатор" class="w-[11.2rem] h-[11.2rem] block">
+    </div>
+    <div class="flex justify-between items-center sm:flex-col">
+      <nav class="mr-8 sm:mr-0 sm:w-full sm:px-9">
+        <ul class="flex items-center [&>:not(:last-child)]:mr-[7.8rem] text-r-m-u lg:[&>:not(:last-child)]:mr-10 sm:w-full sm:justify-between">
+          <li class="">
+            <a href="#" class="hover:text-blue transition">о проекте</a>
+          </li>
+          <li class="">
+            <a href="#" class="hover:text-blue transition">контакты</a>
+          </li>
+        </ul>
+      </nav>
+      {% include "../ui/button.twig" with {
+        props: {
+          href: "#",
+          class: "uppercase",
+          children: "Добавить объявление",
+        }
+      } %}
+    </div>
+  </div>
+</header>

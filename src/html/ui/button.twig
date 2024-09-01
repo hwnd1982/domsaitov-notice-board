@@ -1,0 +1,50 @@
+{% set iconEndProps = ({
+  href: props.iconEnd,
+})|merge(props.iconEndProps ?: {}) %}
+
+{% set iconProps = ({
+  href: props.icon,
+})|merge(props.iconProps ?: {}) %}
+
+{% set props = ({
+  as: "button",
+  href: "",
+  iconStart: "",
+  icon: "",
+  iconEnd: "",
+  class: "",
+  children: "",
+  size: "default",
+  type: "primary",
+  disabled: false,
+  additionalAttributes: "",
+})|merge(props ?: {}) %}
+
+<{{props.href?"a":props.as}}{{props.additionalAttributes ? " " ~ props.additionalAttributes : ""}}{{ props.href ? ' href="' ~ props.href ~ '"' : "" }} class="group button button-size--{{ props.size }} button-type--{{ props.type }}{{ props.icon ? " button--icon" }}{{ props.class ? " " ~ props.class }}" {{ props.disabled ? " disabled" }}>
+
+  {% if props.iconStart %}
+    {% include "./icon.twig" with {
+      props: {
+        href: props.iconStart,
+      }
+    } only %}
+  {% endif %}
+  <span>
+    {% if props.children %}
+      {{ props.children }}
+    {% elseif props.icon %}
+      {% include "./icon.twig" with {
+        props: iconProps ?: {
+        href: props.icon
+      }
+      } only %}
+    {% endif %}
+  </span>
+  {% if props.iconEndProps.href or props.iconEnd %}
+    {% include "./icon.twig" with {
+      props: iconEndProps ?: {
+        href: props.iconEnd
+      }
+    } only %}
+  {% endif %}
+</{{ props.href ? "a" : props.as }}>

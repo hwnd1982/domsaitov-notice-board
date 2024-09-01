@@ -1,0 +1,160 @@
+{% set advertisementsList = [
+  {
+    id: "61",
+    city: "Москва",
+    name: "",
+    mphone: "+7 999 99 99",
+    cphone: "+7 999 99 99",
+    email: "ra.gmail.com",
+    location: {
+      address: "Москва, ул. Пушкина",
+    },
+    
+    title: "Эвакуатор",
+    description: "Эвакуатор авто. Всегда на связи! Быстро и надежно",
+
+    prices: {
+      motorcars: "5 000 руб",
+      motorcycles: "3 000 руб",
+      suvs: "",
+      minibuses: "",
+      country: "50 руб/км",
+    },
+
+    img: "./img/advertisement/photo-01.jpg",
+  },
+  {
+    id: "62",
+    city: "Москва",
+    name: "",
+    mphone: "+7 999 99 99",
+    cphone: "+7 999 99 99",
+    email: "ra.gmail.com",
+    location: {
+      address: "Москва, ул. Пушкина",
+    },
+    
+    title: "Эвакуатор",
+    description: "Круглосуточно. Стоянка в районе метро Технопарк, быстро доберусь в любую точку города.",
+
+    prices: {
+      motorcars: "4 000 руб",
+      motorcycles: "3 000 руб",
+      suvs: "4 000 руб",
+      minibuses: "6 000 руб",
+      country: "50 руб/км",
+    },
+
+    img: "./img/advertisement/photo-02.jpg",
+  },
+    {
+    id: "63",
+    city: "Москва",
+    name: "",
+    mphone: "+7 999 99 99",
+    cphone: "+7 999 99 99",
+    email: "gmail@gmail.com",
+
+    location: {
+      address: "Москва, ул. Пушкина",
+    },
+    
+    title: "Эвакуатор",
+    description: "Круглосуточно. Стоянка в районе метро Технопарк, быстро доберусь в любую точку города.",
+
+    prices: {
+      motorcars: "4 000 руб",
+      motorcycles: "3 000 руб",
+      suvs: "4 000 руб",
+      minibuses: "6 000 руб",
+      country: "50 руб/км",
+    },
+
+    img: "./img/advertisement/photo-01.jpg",
+  },
+    {
+    id: "64",
+    city: "Москва",
+    name: "",
+    mphone: "+7 999 99 99",
+    cphone: "+7 999 99 99",
+    email: "gmail@gmail.com",
+
+    location: {
+      address: "Москва, ул. Пушкина",
+    },
+    
+    title: "Эвакуатор",
+    description: "Круглосуточно. Стоянка в районе метро Технопарк, быстро доберусь в любую точку города.",
+
+    prices: {
+      motorcars: "4 000 руб",
+      motorcycles: "3 000 руб",
+      suvs: "4 000 руб",
+      minibuses: "6 000 руб",
+      country: "50 руб/км",
+    },
+
+    img: "./img/advertisement/photo-02.jpg",
+  },
+] %}
+
+<section>
+  {% set bannerContent %}
+    <h1 class="text-h-sb-l text-white text-center">
+      Телефоны для вызова эвакуатора в
+      <a href="#" class="text-blue-200 underline underline-offset-4">Москве</a>
+    </h1>
+  {% endset %}
+  {% include "../components/banner.twig" with {
+    props: {
+      children: bannerContent,
+      title: "h1",
+      class: "pt-9 pb-11",
+    }
+  } only %}
+  <div class="pt-[10rem] pb-[8rem] lg:py-[6rem]">
+    <div class="container">
+      <ul class="inner flex flex-col items-center">
+        {% for item in advertisementsList %}
+          <li class="flex justify-center w-full [&:not(:last-child)]:mb-11">
+            {% include "../components/advertisement-card.twig" with {
+              props: item,
+            } only %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% include "../ui/pagination.twig" with {
+        props: {
+          pages: 10,
+          page: 5,
+        }
+      } only %}
+    </div>
+  </div>
+  {% set bannerContent %}
+    <div class="flex items-center max-w-[140rem] mx-auto justify-between lg:flex-col">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 mr-9">
+          <img src="./img/advertisement/logo.png" alt="Эвакуатор" class="block w-[21rem] object-contain">
+        </div>
+        <p class="text-h-sb-m text-white">Здесь может быть ваш эвакуатор</p>
+      </div>
+      {% include "../ui/button.twig" with {
+        props: {
+          href: "#",
+          class: "uppercase flex-shrink-0",
+          children: "Добавить объявление",
+          type: "primary",
+        }
+      } %}
+    </div>
+  {% endset %}
+  {% include "../components/banner.twig" with {
+    props: {
+      children: bannerContent,
+      title: "h1",
+      class: "py-2.5 lg:pb-10",
+    }
+  } only %}
+</section>

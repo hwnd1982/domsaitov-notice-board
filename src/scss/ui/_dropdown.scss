@@ -1,0 +1,14 @@
+.dropdown {
+  @apply relative overflow-hidden;
+
+  &__modal {
+    @apply pointer-events-none absolute z-20 z-50 opacity-0 transition;
+  }
+}
+
+.dropdown.is-active {
+}
+
+.dropdown__modal.is-active {
+  @apply pointer-events-auto opacity-100;
+}

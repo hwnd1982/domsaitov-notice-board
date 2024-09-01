@@ -1,0 +1,76 @@
+{% set slidesList = [
+  {
+    title: "Эвакуатор с краном-манипулятором и прямой платформой",
+    img: "./img/how-much-weight/slide-01.png",
+    text: "Компактный и маневренный эвакуатор для транспортировки авто массой до 3,5 т. За счет вылета стрелы манипулятор осуществляет погрузку/разгрузку ТС 
+    с расстояния до 5 м. Он удобен для эвакуации автомобилей с узких улиц/дворов, небольших стоянок/парковок Москвы.",
+  },
+  {
+    title: "Эвакуатор с манипулятором и ломаной / сдвижной платформой",
+    img: "./img/how-much-weight/slide-02.png",
+    text: "Универсальный и надежный эвакуатор для эвакуации любых видов транспортных средств, включая крупную сельскохозяйственную/строительную/коммунальную технику, а также авто с низким клиренсом. Этот тип эвакуатора может быть задействован при перевозке 
+    как сильно пострадавших в аварии автомобилей, так и ТС, которые в состоянии самостоятельно заехать на платформу эвакуатора.",
+  },
+  {
+    title: "Эвакуатор с лебедкой и платформой с аппарелями",
+    img: "./img/how-much-weight/slide-03.png",
+    text: "Используется для перевозки ТС массой до 7 т. Автомобиль затаскивают на платформу эвакуатора по направляющим при помощи электрической/гидравлической/ручной лебедки. Эвакуатор данной модификации не применяется для транспортировки авто с АКПП или заблокированными колесами.",
+  },
+  {
+    title: "Эвакуатор с лебедкой и укороченной базой для частичной погрузки авто",
+    img: "./img/how-much-weight/slide-04.png",
+    text: "Основное назначение – транспортировка крупнотоннажной спецтехники, грузовых авто, автобусов.",
+  },
+] %}
+
+<section class="py-[10rem] lg:py-[6rem] overflow-hidden">
+  <div class="container">
+    <div class="inner  mb-8">
+      <h2 class="text-h-sb-m mb-12">Какой вес может взять на борт эвакуатор</h2>
+      <p class="text-r-l mb-6 max-w-[75rem]">Эвакуатор используют для перевозки всех видов автотранспорта: от небольших квадроциклов до габаритных коммерческих авто. Эвакуатор способен транспортировать автомобили до 8 т.</p>
+      <p class="text-b-l">Виды эвакуаторов, доступные для заказа на ТутЭвакуатор.Ру:</p>
+    </div>
+    <div class="js-slider max-w-[calc(140rem+8.4rem*2)] lg:max-w-none mx-auto relative flex flex-col items-center">
+      <div class="max-w-[140rem] w-full">
+        <div class="swiper -mr-8">
+          <div class="swiper-wrapper">
+            {% for slide in slidesList %}
+              <div class="swiper-slide pr-8 h-auto">
+                <div class="p-10 rounded-[2rem] h-full bg-white">
+                  <h3 class="text-sb-m mb-5">{{slide.title}}</h3>
+                  <div class="mb-5">
+                    <img src="{{slide.img}}" alt="{{slide.title}}" class="">
+                  </div>
+                  <p class="text-r-m">{{slide.text}}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="">
+        {% include "../ui/button.twig" with {
+          props: {
+            icon: "ic-arrow-left",
+            class: "absolute top-1/2 left-0 -translate-y-1/2 xl:-translate-x-1/2 lg:-translate-y-[300%] lg:translate-x-1/2 z-10 js-slider-button-prev",
+            iconProps: {
+              class: "fill-none",
+            },
+            type: "outlined",
+            size: "small",
+        }} %}
+        {% include "../ui/button.twig" with {
+          props: {
+            icon: "ic-arrow-right",
+            class: " absolute top-1/2 right-0 -translate-y-1/2 xl:translate-x-1/2 lg:-translate-x-1/2 lg:-translate-y-[300%] z-10 js-slider-button-next",
+            iconProps: {
+              class: "fill-none",
+            },
+            type: "outlined",
+            size: "small",
+        }} %}
+      </div>
+      <div class="flex justify-center pt-8 js-slider-pagination"></div>
+    </div>
+  </div>
+</section>

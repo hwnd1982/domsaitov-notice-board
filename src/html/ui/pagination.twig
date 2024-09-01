@@ -1,0 +1,54 @@
+{% set props = ({
+  class: "",
+  pages: 1,
+  page: 1,
+})|merge(props ?: {}) %}
+
+{% if props.page < 4 %}
+  {% set range = 1..4 %}
+{% elseif props.pages > 4 and props.page < props.pages - 1 %}
+  {% set range = (props.page - 1)..(props.page + 1) %}
+{% else %}
+  {% set range = (props.pages - 3)..props.pages %}
+{% endif %}
+
+{% if props.pages > 1 %}
+  <ul class="pt-9 flex justify-center [&>:not(:last-child)]:mr-4.5">
+    {% if props.page - 2 > 0 %}
+      {% include "./button.twig" with {
+        props: {
+          href: "#" ~ (props.page - 2),
+          icon: "ic-arrow-left",
+          iconProps: {
+            class: "fill-none",
+          },
+          type: "outlined",
+          size: "small",
+      }} %}
+    {% endif %}
+    {% for page in range %}
+      <li class="">
+        {% include "./button.twig" with {
+          props: {
+            href: "#" ~ page,
+            class: page != props.page ?: "pointer-events-none",
+            children: page,
+            type: page == props.page ? "primary" : "outlined",
+            size: "small",
+        }} %}
+      </li>
+    {% endfor %}
+    {% if props.page + 2 < props.pages %}
+	    {% include "./button.twig" with {
+        props: {
+          href: "#" ~ (props.page + 2),
+          icon: "ic-arrow-right",
+          iconProps: {
+            class: "fill-none",
+          },
+          type: "outlined",
+          size: "small",
+      }} %}
+    {% endif %}
+  </ul>
+{% endif %}

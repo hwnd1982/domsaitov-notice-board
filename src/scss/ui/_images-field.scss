@@ -1,0 +1,47 @@
+.images-field {
+  @apply flex gap-4;
+
+  &__items {
+    @apply flex gap-4 overflow-hidden;
+
+    .is-empty > & {
+      @apply hidden;
+    }
+  }
+
+  &__item {
+    @apply relative aspect-square w-[5.6rem];
+
+    &-img {
+      @apply h-full w-full object-cover object-left;
+    }
+
+    &-remove {
+      @apply absolute right-0 top-0 opacity-0 transition;
+    }
+
+    &:hover > &-remove {
+      @apply bg-black opacity-100;
+    }
+
+    &-add {
+      @apply relative aspect-square w-min shrink-0 overflow-hidden px-0;
+
+      .is-empty & {
+        @apply aspect-auto w-full;
+      }
+
+      &-text {
+        @apply hidden;
+
+        .is-empty & {
+          @apply block;
+        }
+      }
+    }
+
+    &-input {
+      @apply absolute left-0 top-0 -translate-x-full opacity-0;
+    }
+  }
+}

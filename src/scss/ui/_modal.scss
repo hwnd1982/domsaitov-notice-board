@@ -1,0 +1,21 @@
+.modal {
+  @apply pointer-events-none fixed left-0 top-0 -z-10 flex h-[calc(var(--vh,1vh)*100)] w-full flex-col flex-nowrap overflow-y-auto bg-black/60 opacity-0 transition;
+  transition-property: all, z-index;
+  transition-duration: 0.3s, 0s;
+  transition-delay: 0s, 0.3s;
+
+  &__wrapper {
+    @apply m-auto flex w-full shrink-0 grow-0 flex-col flex-nowrap items-center justify-center p-10 lg:px-4 lg:py-8;
+  }
+}
+
+.modal.is-active {
+  @apply pointer-events-auto z-50 opacity-100;
+  transition-delay: 0s, 0s;
+}
+
+.modal:not(.is-active) {
+  * {
+    pointer-events: none !important;
+  }
+}

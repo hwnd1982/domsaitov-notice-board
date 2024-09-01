@@ -1,0 +1,19 @@
+/* Базовые настройки и сброс HTML. */
+@import "base/base";
+
+/* Шрифты. */
+@import "./fonts.scss";
+
+@import "../../node_modules/swiper/swiper.css";
+@import "../../node_modules/swiper/modules/navigation.css";
+@import "../../node_modules/swiper/modules/pagination.css";
+@import "../../node_modules/swiper/modules/effect-fade.css";
+@import "../../node_modules/swiper/modules/grid.css";
+
+@import "ui/index.scss";
+@import "components/index.scss";
+
+/* tailwindcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

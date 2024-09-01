@@ -1,0 +1,45 @@
+.button {
+  @apply inline-flex items-center justify-center gap-2 outline-none transition-all text-sb-m disabled:pointer-events-none;
+
+  .icon {
+    @apply w-6 h-6;
+  }
+}
+
+.button-size {
+  &--default {
+    @apply px-9 py-3 rounded-[5rem];
+  }
+
+  &--small {
+    @apply p-2.5 rounded-[1rem] w-13 h-13;
+  }
+}
+
+.button-type {
+  &--primary {
+    @apply bg-blue text-white hover:bg-blue/80 active:bg-blue-900 disabled:bg-grey-400;
+  }
+
+  &--outlined {
+    @apply bg-transparent shadow-border-px shadow-blue text-blue hover:shadow-blue/80 hover:text-blue/80 active:shadow-blue-900 active:text-blue-900 disabled:shadow-grey-900 disabled:text-grey-900;
+  }
+}
+
+.button--icon {
+  @apply aspect-square px-0;
+}
+
+.button--state {
+  &--disabled {
+    @apply pointer-events-none opacity-20;
+  }
+
+  &--favorite {
+    @apply fill-black/50 stroke-black/50;
+  }
+}
+
+.button.swiper-button-disabled {
+  @apply pointer-events-none opacity-50;
+}

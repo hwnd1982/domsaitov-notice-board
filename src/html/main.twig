@@ -1,0 +1,20 @@
+{% extends "layouts/base.twig" %}
+
+{% set properties = {
+  title: "Main",
+  script: "main",
+} %}
+
+{% block content %}
+  {% include "blocks/advertisements-list.twig" %}
+  {% include "blocks/how-to-call.twig" %}
+  {% include "blocks/need-to-know.twig" %}
+  {% include "blocks/included-in-cost.twig" %}
+  {% include "blocks/advantages.twig" %}
+  {% include "blocks/how-much-weight.twig" %}
+  {% include "blocks/ordering-tow-truck.twig" %}
+  {% include "blocks/how-to-evacuate.twig" %}
+  {% include "blocks/info-tabs.twig" %}
+{% endblock %}
+
+{% block modals %}{% endblock %}

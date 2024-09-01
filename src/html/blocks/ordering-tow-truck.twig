@@ -1,0 +1,24 @@
+<section class="pt-20 pb-15 bg-yellow-200 relative lg:pt-15 lg:pb-10">
+  <div class="container ">
+    <div class="inner grid grid-cols-2 gap-[10.2rem] lg:grid-cols-1 lg:grid-rows-[1fr,_50rem] lg:gap-0">
+      <div class="">
+        <h2 class="text-h-sb-m mb-8">Что необходимо сообщить при заказе эвакуатора</h2>
+        <p class="text-r-l mb-6">Чтобы выбрать эвакуатор с необходимыми техническими параметрами и минимизировать расходы, при вызове эвакуатора следует указать:</p>
+        {% include "../ui/list.twig" with {
+          props: {
+            list: [
+              "марку, модель, год выпуска и полную массу авто",
+              "характер неисправности ТС",
+              "состояние ходовой части, трансмиссии, рулевого управления",
+              "адрес подачи эвакуатора и пункт конечного назначения в Москве",
+              "наличие ключей от авто и документов, подтверждающих право на управление ТС (водительские права, техпаспорт и доверенность, если вы не собственник авто)",
+            ]
+          }
+        } only %}
+      </div>
+    </div>
+    <div class=" absolute left-1/2 right-0 top-0 bottom-0 lg:left-0 lg:top-[calc(100%-50rem)]">
+      <img src="./img/ordering-tow-truck/bg.jpg" alt="" class="block w-full h-full object-cover object-left lg:object-top">
+    </div>
+  </div>
+</section>

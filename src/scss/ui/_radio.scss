@@ -1,0 +1,54 @@
+.radio {
+  @apply relative flex w-fit cursor-pointer items-center;
+
+  &:hover .radio {
+    &__control {
+      @apply shadow-blue-900;
+    }
+
+    &__content {
+      @apply text-grey-500;
+    }
+  }
+
+  &--type--checkbox & {
+    &__control {
+      @apply h-6 w-6 shrink-0 rounded-[.4rem] shadow-border-px shadow-blue transition text-transparent;
+    }
+
+    &__input {
+      @apply sr-only;
+
+      &:checked {
+        & ~ .radio {
+          &__control {
+            @apply text-blue;
+          }
+        }
+      }
+    }
+  }
+  
+
+  &--type--radio & {
+    &__control {
+      @apply h-6 w-6 shrink-0 rounded-full shadow-border-px shadow-blue transition;
+    }
+
+    &__input {
+      @apply sr-only;
+
+      &:checked {
+        & ~ .radio {
+          &__control {
+            @apply shadow-border-1 shadow-blue;
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    @apply ml-2 text-black/50 transition text-sb-m;
+  }
+}

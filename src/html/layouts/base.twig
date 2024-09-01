@@ -1,0 +1,41 @@
+{% set defaultProperties = {
+  title: "",
+  script: "",
+} %}
+
+{% set properties = defaultProperties|merge(properties ?: {}) %}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ properties.title }}</title>
+		<link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./css/main.bundle.css"/>
+	</head>
+	<body>
+		{% include "../components/header.twig" %}
+		<main class="relative flex-grow"> {% block content %}{% endblock %} </main>
+		{% include '../components/footer.twig' %}
+
+		<div id="modals">
+			{% block modals %}{% endblock %}
+			<a href="#top" class="fixed block bottom-[27.5rem] right-[7.4rem] z-50 js-smooth-scroll">
+				<svg class="block w-11 h11" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  				<g opacity="0.6">
+    				<rect x="0.5" y="0.5" width="43" height="43" rx="7.5" fill="white" />
+    				<rect x="0.5" y="0.5" width="43" height="43" rx="7.5" stroke="#0297D4" />
+    				<path d="M21 34C21 34.5523 21.4477 35 22 35C22.5523 35 23 34.5523 23 34L21 34ZM22.7071 9.29289C22.3166 8.90237 21.6834 8.90237 21.2929 9.29289L14.9289 15.6569C14.5384 16.0474 14.5384 16.6805 14.9289 17.0711C15.3195 17.4616 15.9526 17.4616 16.3431 17.0711L22 11.4142L27.6569 17.0711C28.0474 17.4616 28.6805 17.4616 29.0711 17.0711C29.4616 16.6805 29.4616 16.0474 29.0711 15.6569L22.7071 9.29289ZM23 34L23 10L21 10L21 34L23 34Z" fill="#0297D4" />
+  				</g>
+				</svg>
+			</a>
+			{% include "../components/custom-modal.twig" %}
+		</div>
+			
+		<script src="./js/global.bundle.js"></script>
+		{% if properties.script %}
+			<script src="./js/{{ properties.script }}.bundle.js"></script>
+		{% endif %}
+	</body>
+</html>

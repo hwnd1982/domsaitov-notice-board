@@ -1,0 +1,23 @@
+{% set credentialModalContent %}
+  <div class="p-15 lg:px-4 bg-white relative">
+    <button class="absolute top-5 right-5 block lg:top-4 lg:right-4 js-modal-close">
+      {% include "../ui/icon.twig" with {
+        props: {
+          href: "close",
+          class: "w-6",
+        }
+      } only %}
+    </button>
+    <div class="js-custom-modal-content"></div>
+  </div>
+{% endset %}
+
+{% include "../ui/modal.twig" with {
+  props: {
+    id: "custom",
+    class: "",
+    children: credentialModalContent,
+    windowClass: "w-[45.3rem] max-w-full",
+    closeClass: "hidden",
+  }
+} only %}

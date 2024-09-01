@@ -1,0 +1,12 @@
+{% set props = ({
+  class: "",
+  children: "",
+})|merge(props ?: {}) %}
+
+<div class="bg-grey-300 bg-[url(../img/fragment.png)] bg-contain {{props.class ? ' ' ~ props.class : ''}}">
+	<div class="container">
+		<div class="inner">
+			{{props.children}}
+		</div>
+	</div>
+</div>

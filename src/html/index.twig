@@ -1,0 +1,31 @@
+{% extends "layouts/base.twig" %}
+
+{% set properties = {
+  title: "Страницы",
+  script: "index",
+} %}
+
+{% set pages = [
+  {
+    href: "main",
+    title: "Главная",
+  },
+	{
+    href: "сreating",
+    title: "Создание объявления",
+  },
+] %}
+
+{% block content %}
+	<section class="py-10">
+		<div class="container">
+			<ul class="space-y-6 text-r-xl text-black/50">
+				{% for page in pages %}
+					<li>
+						<a class="hover:text-black transition" href="{{ page.href }}.html" target="_blank">{{ page.title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,251 @@
+{% extends "layouts/base.twig" %}
+
+{% set properties = {
+  title: "сreating",
+  script: "сreating",
+} %}
+
+{% block content %}
+{% set bannerContent %}
+  <h1 class="text-h-sb-l text-white text-center">Создание объявления</h1>
+  {% endset %}
+  {% include "./components/banner.twig" with {
+      props: {
+        children: bannerContent,
+        title: "h1",
+        class: "pt-9 pb-11",
+      }
+  } only %}
+
+  <div class="container">
+    <div class="inner">
+      <div class="flex items-center pt-15 pb-5">
+        <svg class="block flex-shrink-0 w-[10.4rem] h-[9.3ren] mr-2" viewBox="0 0 104 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60.6674 27.1244H49.8326C48.1087 27.1244 46.4554 27.7368 45.2364 28.8268C44.0175 29.9169 43.3326 31.3953 43.3326 32.9369C43.3326 34.4785 44.0175 35.9569 45.2364 37.0469C46.4554 38.137 48.1087 38.7494 49.8326 38.7494H54.1674C55.8913 38.7494 57.5446 39.3618 58.7636 40.4518C59.9825 41.5419 60.6674 43.0203 60.6674 44.5619C60.6674 45.3252 60.4992 46.081 60.1726 46.7862C59.8459 47.4914 59.3671 48.1322 58.7636 48.6719C58.16 49.2117 57.4434 49.6398 56.6548 49.9319C55.8662 50.224 55.021 50.3744 54.1674 50.3744H43.3326M52 50.3744V54.2506M52 23.25V27.1244" stroke="#344054" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M26 81.375H78M86.6674 11.625H17.3326C14.9406 11.625 13 13.3604 13 15.4994V61.9994C13 64.1384 14.9406 65.8756 17.3326 65.8756H86.6674C89.0594 65.8756 91 64.1402 91 61.9994V15.4994C91 13.3604 89.0594 11.625 86.6674 11.625Z" stroke="#0297D4" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <p class="text-r-l whitespace-pre-line">Заполните все поля формы на размещение своего объявления на сайте.
+        Размещение объявления платное. Стоимость за одно объявление составляет <span class="font-semibold">990 руб.</span>
+        Объявление будет опубликовано на сайте после оплаты и проверки модератором.</p>
+
+      </div>
+      <form action="#" class="mx-auto pt-[5.3rem] pb-[7.8rem] js-form">
+        <fieldset class="">
+          <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
+            {% include "./ui/text-field.twig" with {
+              props: {
+                name: "city",
+                label: "Вашу имя",
+                validate: "city, required",
+                placeholder: "",
+                type: "select",
+              }
+            } only %}
+
+            {% include "./ui/text-field.twig" with {
+              props: {
+                label: "Вашу имя",
+                name: "name",
+                inputAttributes: "",
+                validate: "name, required",
+              }
+            } only %}
+
+            {% include "./ui/text-field.twig" with {
+              props: {
+                name: "mphone",
+                label: "Номер мобильного телефона",
+                inputType: "tel",
+                validate: "phone, required",
+                placeholder: "+7 (999) 999 99 99",
+              }
+            } only %}
+
+            {% include "./ui/text-field.twig" with {
+              props: {
+                name: "cphone",
+                label: "Номер городского телефона",
+                inputType: "tel",
+                validate: "phone, required",
+                placeholder: "+7 (999) 999 99 99",
+              }
+            } only %}
+
+            {% include "./ui/text-field.twig" with {
+              props: {
+                name: "email",
+                label: "Ваш email",
+                inputType: "email",
+                validate: "email",
+                placeholder: "example@gmail.com",
+              }
+            } only %}
+
+            {% include "./ui/text-field.twig" with {
+              props: {
+                name: "address",
+                label: "Адрес стоянки эвакуатора",
+                validate: "text",
+              }
+            } only %}
+          </div>
+        </fieldset>
+
+
+        <fieldset class="">
+          <legend class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><span class="px-5">ИНФОРМАЦИЯ</span></legend>
+          <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
+            {% include "./ui/text-field.twig" with {
+              props: {
+                label: "Заголовок объявления",
+                name: "title",
+                validate: "title, required",
+                placeholder: "Не более 50 символов",
+              }
+            } only %}
+
+            {% include "./ui/text-field.twig" with {
+              props: {
+                name: "description",
+                label: "Описание объявления",
+                inputClass: "min-h-[32rem]",
+                type: "textarea",
+                validate: "description, required",
+                placeholder: "Не более 250 символов",
+              }
+            } only %}
+          </div>
+        </fieldset>
+
+        <fieldset class="">
+          <legend class="flex items-center justify-center w-full text-r-l uppercase text-grey-200 py-[5.3rem] after:h-[1px] after:bg-blue after:flex-grow before:h-[1px] before:bg-blue before:flex-grow"><span class="px-5">цены</span></legend>
+          <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
+            <div class="">
+              <label class="text-field__label" for="price-motorcars">Легковые автомобили</label>
+              <div class="flex justify-between items-center">
+                {% include "./ui/text-field.twig" with {
+                  props: {
+                    class: "max-w-[50%]",
+                    name: "price-motorcars",
+                    validate: "price, required",
+                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                  }
+                } only %}
+                
+                {% include "./ui/radio.twig" with {
+                  props: {
+                    class: "flex justify-end flex-grow",
+                    type: "checkbox",
+                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                  }
+                } %}
+              </div>
+            </div>
+            
+            <div class="">
+              <label class="text-field__label" for="price-motorcycles">Мототехника</label>
+              <div class="flex justify-between items-center">
+                {% include "./ui/text-field.twig" with {
+                  props: {
+                    class: "max-w-[50%]",
+                    name: "price-motorcycles",
+                    validate: "price, required",
+                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                  }
+                } only %}
+                
+                {% include "./ui/radio.twig" with {
+                  props: {
+                    class: "flex justify-end flex-grow",
+                    type: "checkbox",
+                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                  }
+                } %}
+              </div>
+            </div>
+
+            <div class="">
+              <label class="text-field__label" for="price-suvs">Внедорожник</label>
+              <div class="flex justify-between items-center">
+                {% include "./ui/text-field.twig" with {
+                  props: {
+                    class: "max-w-[50%]",
+                    name: "price-suvs",
+                    validate: "price, required",
+                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                  }
+                } only %}
+                
+                {% include "./ui/radio.twig" with {
+                  props: {
+                    class: "flex justify-end flex-grow",
+                    type: "checkbox",
+                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                  }
+                } %}
+              </div>
+            </div>
+
+            <div class="">
+              <label class="text-field__label" for="price-minibuses">Микроавтобус</label>
+              <div class="flex justify-between items-center">
+                {% include "./ui/text-field.twig" with {
+                  props: {
+                    class: "max-w-[50%]",
+                    name: "price-minibuses",
+                    validate: "price, required",
+                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                  }
+                } only %}
+                
+                {% include "./ui/radio.twig" with {
+                  props: {
+                    class: "flex justify-end flex-grow",
+                    type: "checkbox",
+                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                  }
+                } %}
+              </div>
+            </div>
+
+            <div class="">
+              <label class="text-field__label" for="price-country">Загородный тариф</label>
+              <div class="flex justify-between items-center">
+                {% include "./ui/text-field.twig" with {
+                  props: {
+                    class: "max-w-[50%]",
+                    name: "price-country",
+                    validate: "price, required",
+                    postContent: '<span class="text-r-c text-grey-200 ml-4">рублей</span>',
+                  }
+                } only %}
+                
+                {% include "./ui/radio.twig" with {
+                  props: {
+                    class: "flex justify-end flex-grow",
+                    type: "checkbox",
+                    children: '<span class="text-r-c text-grey-200 ml-4">Услугу не оказываю</span>',
+                  }
+                } %}
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+        <div class="max-w-[79.8rem] mx-auto flex flex-col items-center [&>:not(:last-chaild)]:mb-6">
+          
+          {% include "./ui/button.twig" with {
+            props: {
+              class: "uppercase w-full mx-auto max-w-[33.5rem] js-form-submit",
+              children: "Продолжить",
+              additionalAttributes: 'type="submit"'
+            }
+          } only %}
+          
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block modals %}{% endblock %}

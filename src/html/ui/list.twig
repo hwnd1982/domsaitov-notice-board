@@ -1,0 +1,13 @@
+{% set props = ({
+  class: "",
+  list: [],
+  type: "ul"
+})|merge(props ?: {}) %}
+
+{% if props.list.length %}
+  <{{props.type}} class="[&>li]:pl-12 [&>li]:relative [&>li]:text-r-l [&>li]:after:text-blue [&>li]:after:flex [&>li]:after:items-center [&>li]:after:justify-center [&>li]:after:absolute [&>li]:after:text-sb-c [&>li]:after:top-0 [&>li]:after:left-0 {{props.type == "ul" ? " [&>li]:after:bg-[url(../img/icons/done.svg)]" : "[&>li]:after:bg-[url(../img/icons/circle.svg)] [counter-reset:item] [&>li]:[counter-increment:item] [&>li]:after:content-[counter(item)]"}} [&>li]:after:bg-cover [&>li]:after:w-8 [&>li]:after:h-8 [&>:not(:last-child)]:mb-8 pr-[3.4rem]{{props.class ? " " ~ props.class : ""}}">
+    {% for item in props.list %}
+      <li>{{item}}</li>
+    {% endfor %}
+  </{{props.type}}>
+{% endif %}

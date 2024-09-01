@@ -1,0 +1,11 @@
+.icon {
+  @apply fill-current w-5 h-auto shrink-0;
+
+  &.favorite {
+    @apply fill-none stroke-current stroke-[1.5];
+
+    .is-favorite & {
+      @apply fill-current stroke-transparent;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{% set props = (  {
+  id: "",
+  city: "",
+  mphone: "",
+  cphone: "",
+  email: "",
+  location: {},
+  title: "",
+  description: "",
+  prices: {
+    motorcars: "",
+    motorcycles: "",
+    suvs: "",
+    minibuses: "",
+    country: "",
+  },
+  img: "",
+})|merge(props ?: {}) %}
+
+<article class="w-full bg-white rounded-[2rem] px-12 py-10 shadow-[0.2rem_0.2rem_1rem_0.2rem_rgba(39,52,58,0.15)] sm:p-[2.8rem]">
+  <h2 class="text-grey-100 mb-[2.8rem] text-h-b-m">{{props.title}}</h2>
+
+  <div class="flex mb-[2.8rem] lg:flex-wrap gap-[2.8rem]">
+    <div class="max-h-[32.8rem] max-w-[41.4rem] rounded-[1rem] overflow-hidden sm:max-w-none sm:max-h-none">
+      <img src="{{props.img}}" alt="" class="w-full h-full object-cover">
+    </div>
+    <ul class="flex-grow w-full text-grey-500 max-w-[49.8rem] [&>:not(:last-child)]:mb-3 lg:max-w-none lg:order-1 lg:mr-0">
+      <li class="flex justify-between items-baseline py-[1.3rem] px-5 rounded-[1rem] bg-grey-800">
+        <span class="text-r-m max-w-[70%] whitespace-nowrap text-ellipsis overflow-hidden">Легковой автомобиль</span>
+        <span class="text-b-m">{{props.prices.motorcars ? props.prices.motorcars : 'нет'}}</span>
+      </li>
+      <li class="flex justify-between items-baseline py-[1.3rem] px-5 rounded-[1rem] bg-grey-800">
+        <span class="text-r-m max-w-[70%] whitespace-nowrap text-ellipsis overflow-hidden">Мотоцикл (крадроцикл и т.д.)</span>
+        <span class="text-b-m">{{props.prices.motorcycles ? props.prices.motorcycles : 'нет'}}</span>
+      </li>
+      <li class="flex justify-between items-baseline py-[1.3rem] px-5 rounded-[1rem] bg-grey-800">
+        <span class="text-r-m max-w-[70%] whitespace-nowrap text-ellipsis overflow-hidden">Внедорожник</span>
+        <span class="text-b-m">{{props.prices.suvs ? props.prices.suvs : 'нет'}}</span>
+      </li>
+      <li class="flex justify-between items-baseline py-[1.3rem] px-5 rounded-[1rem] bg-grey-800">
+        <span class="text-r-m max-w-[70%] whitespace-nowrap text-ellipsis overflow-hidden">Микроавтобус</span>
+        <span class="text-b-m">{{props.prices.minibuses ? props.prices.minibuses : 'нет'}}</span>
+      </li>
+      <li class="flex justify-between items-baseline py-[1.3rem] px-5 rounded-[1rem] bg-grey-800">
+        <span class="text-r-m max-w-[70%] whitespace-nowrap text-ellipsis overflow-hidden">Загородный тариф</span>
+        <span class="text-b-m">{{props.prices.country ? props.prices.country : 'нет'}}</span>
+      </li>
+    </ul>
+    <div class="flex flex-col flex-shrink-0 flex-grow">
+      {% include "../ui/button.twig" with {
+        props: {
+          href: "tel:" ~ props.mphone|replace({' ': ''}),
+          iconStart: "ic-mphone",
+          children: props.mphone,
+          class: "w-full mb-3"
+        }
+      } %}
+      {% include "../ui/button.twig" with {
+        props: {
+          href: "tel:" ~ props.cphone|replace({' ': ''}),
+          iconStart: "ic-cphone",
+          children: props.cphone,
+          class: "w-full"
+        }
+      } %}
+      <div class="flex items-center flex-grow my-6">
+        <a href="#" class="block w-full bg-yellow-200 px-5 py-4 text-black rounded-[1rem] text-r-m">
+          <span class="flex mb-3 text-grey-500">
+            {% include "../ui/icon.twig" with {
+              props: {
+                href: "ic-location",
+                class: "w-8 h-8 mr-1",
+              }
+            } only %}
+            Место стоянки
+          </span>
+          <span class="block">{{props.location.address}}</span>
+        </a>
+      </div>
+      {% set buttonContent %}
+        <span class="block text-r-xsm text-center mb-1">ID объявления <b class="font-semibold">{{props.id}}</b></span>
+        <span class="block text-r-sm underline underline-offset-4 text-center">Заказать рекламу</span>
+      {% endset %}
+
+      {% include "../ui/button.twig" with {
+        props: {
+          href: "#",
+          children: buttonContent,
+          class: "w-full",
+          type: "outlined",
+        }
+      } %}
+
+
+    </div>
+  </div>
+  <p class="text-r-m">{{props.description}}</p>
+</article>
+
