@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env TS_NODE_PROJECT=gulp/tsconfig.json gulp",
-    "build-prod": "cross-env TS_NODE_PROJECT=gulp/tsconfig.json gulp production --prod",
+    "build-prod": "cross-env TS_NODE_PROJECT=gulp/tsconfig.json gulp production --prod --output public",
     "build-dist": "cross-env TS_NODE_PROJECT=gulp/tsconfig.json gulp dist --prod",
     "fonts": "cross-env TS_NODE_PROJECT=gulp/tsconfig.json gulp fonts",
     "sprite": "cross-env TS_NODE_PROJECT=gulp/tsconfig.json gulp sprite --prod",
