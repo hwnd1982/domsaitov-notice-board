@@ -126,10 +126,10 @@
           <div class="max-w-[79.8rem] mx-auto [&>:not(last-chaild)]:mb-[2.8rem]">
             <div class="js-optional-field">
               <label class="text-field__label" for="price-motorcars">Легковые автомобили</label>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center lg:flex-col lg:items-start">
                 {% include "./ui/text-field.twig" with {
                   props: {
-                    class: "max-w-[50%]",
+                    class: "max-w-[50%] lg:max-w-none lg:w-full lg:mb-6",
                     name: "price-motorcars",
                     validate: "price, required",
                     postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
@@ -148,10 +148,10 @@
             
             <div class="js-optional-field">
               <label class="text-field__label" for="price-motorcycles">Мототехника</label>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center lg:flex-col lg:items-start">
                 {% include "./ui/text-field.twig" with {
                   props: {
-                    class: "max-w-[50%]",
+                    class: "max-w-[50%] lg:max-w-none lg:w-full lg:mb-6",
                     name: "price-motorcycles",
                     validate: "price, required",
                     postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
@@ -170,10 +170,10 @@
 
             <div class="js-optional-field">
               <label class="text-field__label" for="price-suvs">Внедорожник</label>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center lg:flex-col lg:items-start">
                 {% include "./ui/text-field.twig" with {
                   props: {
-                    class: "max-w-[50%]",
+                    class: "max-w-[50%] lg:max-w-none lg:w-full lg:mb-6",
                     name: "price-suvs",
                     validate: "price, required",
                     postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
@@ -192,10 +192,10 @@
 
             <div class="js-optional-field">
               <label class="text-field__label" for="price-minibuses">Микроавтобус</label>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center lg:flex-col lg:items-start">
                 {% include "./ui/text-field.twig" with {
                   props: {
-                    class: "max-w-[50%]",
+                    class: "max-w-[50%] lg:max-w-none lg:w-full lg:mb-6",
                     name: "price-minibuses",
                     validate: "price, required",
                     postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
@@ -214,10 +214,10 @@
 
             <div class="js-optional-field">
               <label class="text-field__label" for="price-country">Загородный тариф</label>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center lg:flex-col lg:items-start">
                 {% include "./ui/text-field.twig" with {
                   props: {
-                    class: "max-w-[50%]",
+                    class: "max-w-[50%] lg:max-w-none lg:w-full lg:mb-6",
                     name: "price-country",
                     validate: "price, required",
                     postContent: '<span class="text-r-c text-grey-200 pl-4 block">рублей</span>',
