@@ -12,7 +12,7 @@ import { TextFieldElement, openCustomModal } from "./ui";
 if (!window.endpoints) {
   window.endpoints = {
     findLocationsUrl:
-      "https://orimex.sirotkin.dev.ibrush.ru/bitrix/services/main/ajax.php?action=ibrush%3Amain.controllers.locationcontroller.findLocations",
+      "https://orimex-online.ru/bitrix/services/main/ajax.php?action=ibrush%3Amain.controllers.locationcontroller.findLocations&SITE_ID=s1",
     createNewAd: "https://jsonplaceholder.typicode.com/posts",
   };
 }
